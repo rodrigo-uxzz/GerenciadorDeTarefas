@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contato;
+use App\Models\Tarefas;
 
-class ContatoController extends Controller
+class TarefasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $contato = Contato::all();
+        $tarefas = Tarefas::all();
 
-        return view('contato')->with('contato',$contato);
+        return view('tarefas')->with('tarefas',$tarefas);
     }
 
     /**

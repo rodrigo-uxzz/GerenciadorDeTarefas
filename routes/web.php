@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\TarefasController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/contato',[ContatoController::class, 'index']);
+Route::get('/tarefas',[TarefasController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');

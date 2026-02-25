@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contato extends Model
+class Tarefas extends Model
 {
-    protected $table = 'contato';
+    protected $table = 'tarefas';
 
     public $fillable=
-    ['id','nome','email','assunto','mensagem','created_at','updated_at'];
+    ['id','nome','DataInicio','DataLimite','StatusTarefa','created_at','updated_at'];
 
 
 }
