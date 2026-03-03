@@ -7,9 +7,7 @@ use App\Models\Tarefas;
 
 class TarefasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $tarefas = Tarefas::all();
@@ -17,20 +15,37 @@ class TarefasController extends Controller
         return view('tarefas')->with('tarefas',$tarefas);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validacao = [
+            'nome' => 'required|max:255',
+            'DataInicio' => 'required|date',
+            'DataLimite' => 'required|date|after_or_equal:DataInicio',
+            'StatusTarefa' => 'required|in:Pendente,Em Andamento,Concluída',
+            'tipo' => 'required|in:Trabalho,Estudo,Lazer',
+        ];
+
+        $request->validate($validacao);
+
+        $tarefas = new Tarefas();
+        $tarefas->nome = $request->input('nome'); 
+        $tarefas->DataInicio = $request->input('DataInicio');
+        $tarefas->DataLimite = $request->input('DataLimite');
+        $tarefas->StatusTarefa = $request->input('StatusTarefa');
+        $tarefas->tipo = $request->input('tipo');
+
+        $tarefas->save();
+
+        return redirect()->back()->with('success', 'Tarefa criada com sucesso!');
+        
+
+
     }
 
     /**

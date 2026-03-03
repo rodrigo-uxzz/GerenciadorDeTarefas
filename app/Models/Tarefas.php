@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarefas extends Model
 {
-    protected $table = 'tarefa';
+    use HasFactory;
 
-    public $fillable=
-    ['id','nome','DataInicio','DataLimite','StatusTarefa','created_at','updated_at'];
+    protected $table = 'tarefas';
 
+    protected $fillable = [
+        'nome',
+        'DataInicio',
+        'DataLimite',
+        'StatusTarefa',
+        'tipo'
+    ];
 
+    public $timestamps = false;
 }

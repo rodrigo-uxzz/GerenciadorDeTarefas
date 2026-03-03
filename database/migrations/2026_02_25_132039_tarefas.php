@@ -13,6 +13,7 @@ return new class extends Migration
            $table->String('nome');
            $table->date('DataInicio');
            $table->date('DataLimite');
+           $table->enum('tipo', ['Trabalho', 'Estudo', 'Lazer']);
            $table->String('StatusTarefa');
         });
     }
