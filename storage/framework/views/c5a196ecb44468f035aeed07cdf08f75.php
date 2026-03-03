@@ -54,27 +54,27 @@
                 <th scope="col">Status</th>
             </tr>
         </thead>
-        @foreach ($tarefas as $t)
+        <?php $__currentLoopData = $tarefas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tbody>
                 <tr>
                     <th scope="row">
-                        <p>{{ $t->id }}</p>
+                        <p><?php echo e($t->id); ?></p>
                     </th>
                     <td>
-                        <p>{{ $t->nome }}</p>
+                        <p><?php echo e($t->nome); ?></p>
                     </td>
                     <td>
-                        <p>{{ $t->DataInicio }}</p>
+                        <p><?php echo e($t->DataInicio); ?></p>
                     </td>
                     <td>
-                        <p>{{ $t->DataLimite }}</p>
+                        <p><?php echo e($t->DataLimite); ?></p>
                     </td>
                     <td>
-                        <p>{{ $t->StatusTarefa }}</p>
+                        <p><?php echo e($t->StatusTarefa); ?></p>
                     </td>
                 </tr>
             </tbody>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </table>
 
     <footer class="bg-body-tertiary text-center text-lg-start">
@@ -93,3 +93,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\Users\userlocal\GerenciadorDeTarefas\resources\views/tarefas.blade.php ENDPATH**/ ?>

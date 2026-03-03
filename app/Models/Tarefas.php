@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarefas extends Model
 {
-    protected $table = 'tarefas';
+    protected $table = 'tarefa';
 
     public $fillable=
     ['id','nome','DataInicio','DataLimite','StatusTarefa','created_at','updated_at'];
