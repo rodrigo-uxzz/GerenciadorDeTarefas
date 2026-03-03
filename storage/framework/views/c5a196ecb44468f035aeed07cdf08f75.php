@@ -7,91 +7,97 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Document</title>
-    <link rel="stylesheet" href="/resources/css/tarefas.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>To-do list</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Gerador de Tarefas</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo e(route('tarefas.cadastrar')); ?>">Criar Tarefa</a>          <li class="nav-item">
-                <a class="nav-link" href="#">Configuração</a>
-            </li>
-            <li class="nav-item dropdown">
-            </li>
-            </ul>
-            <form class="d-flex mt-3" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
-            <button class="btn btn-success" type="submit">Pesquisar</button>
-            </form>
-        </div>
-        </div>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gerador de Tarefas</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+<a class="nav-link active" aria-current="page" href="<?php echo e(route('tarefas.cadastrar')); ?>">Criar Tarefa</a>          <li class="nav-item">
+            <a class="nav-link" href="#">Configuração</a>
+          </li>
+          <li class="nav-item dropdown">
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
+          <button class="btn btn-success" type="submit">Pesquisar</button>
+        </form>
+      </div>
     </div>
-    </nav>
+  </div>
+</nav>
 
-    <main class="container mt-5 pt-5">
-        <table class="to_do">
-            <h1>to do</h1>
-            <!-- Façam funciona! e coloque apenas para abrir aquela tela de cadastro -->
-            <form action="actions/create.php" method="POST" class="to-do-form">
-                <label for="tarefa_nova">Nova Tarefa</label>
-                <button type="submit">
-                    <p>Criar</p>
-                </button>
-            </form>
+<main class="container mt-5 pt-5">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Inicio</th>
+                <th scope="col">Final</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php $__empty_1 = true; $__currentLoopData = $tarefas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <tr>
+                <th scope="row"><?php echo e($t->id); ?></th>
+                <td><?php echo e($t->nome); ?></td>
+                <td><?php echo e($t->DataInicio); ?></td>
+                <td><?php echo e($t->DataLimite); ?></td>
+                <td><?php echo e($t->StatusTarefa); ?></td>
+            </tr>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+            <tr>
+                <td colspan="5" class="text-center">Nenhuma tarefa encontrada.</td>
+            </tr>
+        <?php endif; ?>
+        </tbody>
+    </table>
+</main>
 
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Inicio</th>
-                    <th scope="col">Final</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php $__empty_1 = true; $__currentLoopData = $tarefas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <tr>
-                    <th scope="row"><?php echo e($t->id); ?></th>
-                    <td><?php echo e($t->nome); ?></td>
-                    <td><?php echo e($t->DataInicio); ?></td>
-                    <td><?php echo e($t->DataLimite); ?></td>
-                    <td><?php echo e($t->StatusTarefa); ?></td>
-                </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                <tr>
-                    <td colspan="5" class="text-center">Nenhuma tarefa encontrada.</td>
-                </tr>
-            <?php endif; ?>
-            </tbody>
-        </table>
-    </main>
+<footer class="text-center text-lg-start">
+    <div class="text-center p-3">
+        © 2026 Copyright:
+        <a class="text-body" href="https://mdbootstrap.com/">Socorro18.com</a>
+    </div>
+</footer>
 
-    <footer class="text-center text-lg-start">
-        <div class="text-center p-3">
-            © 2026 Copyright:
-            <a class="text-body" href="https://mdbootstrap.com/">Socorro18.com</a>
-        </div>
-    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-    </script>
-
-    </body>
+</body>
 
 </html><?php /**PATH C:\Users\userlocal\GerenciadorDeTarefas\resources\views/tarefas.blade.php ENDPATH**/ ?>
