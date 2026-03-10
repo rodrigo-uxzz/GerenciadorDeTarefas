@@ -67,6 +67,7 @@
                 <th scope="col">Inicio</th>
                 <th scope="col">Final</th>
                 <th scope="col">Status</th>
+                <th scope="col">tipo</th>
             </tr>
         </thead>
         <tbody>
@@ -77,10 +78,11 @@
                 <td><?php echo e($t->DataInicio); ?></td>
                 <td><?php echo e($t->DataLimite); ?></td>
                 <td><?php echo e($t->StatusTarefa); ?></td>
+                <td><?php echo e($t->tipo); ?></td>
             </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
             <tr>
-                <td colspan="5" class="text-center">Nenhuma tarefa encontrada.</td>
+                <td colspan="6" class="text-center">Nenhuma tarefa encontrada.</td>
             </tr>
         <?php endif; ?>
         </tbody>

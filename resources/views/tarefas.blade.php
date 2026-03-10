@@ -67,6 +67,7 @@
                 <th scope="col">Inicio</th>
                 <th scope="col">Final</th>
                 <th scope="col">Status</th>
+                <th scope="col">tipo</th>
             </tr>
         </thead>
         <tbody>
@@ -77,10 +78,11 @@
                 <td>{{ $t->DataInicio }}</td>
                 <td>{{ $t->DataLimite }}</td>
                 <td>{{ $t->StatusTarefa }}</td>
+                <td>{{ $t->tipo }}</td>
             </tr>
         @empty
             <tr>
-                <td colspan="5" class="text-center">Nenhuma tarefa encontrada.</td>
+                <td colspan="6" class="text-center">Nenhuma tarefa encontrada.</td>
             </tr>
         @endforelse
         </tbody>
