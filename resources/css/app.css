@@ -1,0 +1,183 @@
+body {
+    background: #ffaa00;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    padding: 2rem;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #f5f0e8;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 0.72rem;
+    color: #c8a96e;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  .badge {
+    background: #c8a96e;
+    color: #0f0e0c;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  .table-wrap {
+    border: 1px solid #2a2822;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    background: #1a1915;
+    border-bottom: 1px solid #c8a96e40;
+  }
+
+  th {
+    text-align: left;
+    padding: 1rem 1.4rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+  }
+
+  th:last-child, td:last-child {
+    text-align: right;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #1e1d1a;
+    transition: background 0.18s ease;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:hover {
+    background: #161510;
+  }
+
+  td {
+    padding: 1.05rem 1.4rem;
+    font-size: 0.82rem;
+    color: #d4cfc6;
+  }
+
+  .product-name {
+    color: #f5f0e8;
+    font-weight: 500;
+  }
+
+  .category {
+    font-size: 0.7rem;
+    color: #6b6760;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .status {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .status.active   { background: #1a2e1a; color: #6fcf6f; border: 1px solid #6fcf6f30; }
+  .status.pending  { background: #2e2614; color: #c8a96e; border: 1px solid #c8a96e30; }
+  .status.paused   { background: #2a1a1a; color: #cf6f6f; border: 1px solid #cf6f6f30; }
+
+  .value {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+
+  .value.positive { color: #6fcf6f; }
+  .value.negative { color: #cf6f6f; }
+
+  .bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .bar-bg {
+    flex: 1;
+    height: 3px;
+    background: #2a2822;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: #c8a96e;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .bar-pct {
+    font-size: 0.7rem;
+    color: #6b6760;
+    width: 2.5rem;
+    text-align: right;
+  }
+
+  tfoot {
+    background: #151410;
+    border-top: 1px solid #2a2822;
+  }
+
+  tfoot td {
+    color: #f5f0e8;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 1rem 1.4rem;
+  }
+
+  tfoot td:first-child {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    color: #c8a96e;
+  }
+
+  .footer-note {
+    margin-top: 1.2rem;
+    font-size: 0.65rem;
+    color: #3a3830;
+    letter-spacing: 0.08em;
+    text-align: right;
+  }

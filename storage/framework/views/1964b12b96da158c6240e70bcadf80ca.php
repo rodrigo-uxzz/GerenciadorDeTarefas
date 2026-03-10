@@ -370,7 +370,7 @@ tfoot td:first-child {
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-<a class="nav-link active" aria-current="page" href="{{ route('tarefas.cadastrar') }}">Criar Tarefa</a>          <li class="nav-item">
+<a class="nav-link active" aria-current="page" href="<?php echo e(route('tarefas.cadastrar')); ?>">Criar Tarefa</a>          <li class="nav-item">
             <a class="nav-link" href="#">Configuração</a>
           </li>
           <li class="nav-item dropdown">
@@ -444,29 +444,29 @@ tfoot td:first-child {
             </tr>
         </thead>
         <tbody>
-        @forelse ($tarefas as $t)
+        <?php $__empty_1 = true; $__currentLoopData = $tarefas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <tr>
-                <th scope="row"><span class="product-name">{{ $t->nome }}</span></th>
-                <td><span class="category">{{ $t->tipo }}</span></td>
-                <td>{{ $t->DataInicio }}</td>
-                <td>{{ $t->DataLimite }}</td>
+                <th scope="row"><span class="product-name"><?php echo e($t->nome); ?></span></th>
+                <td><span class="category"><?php echo e($t->tipo); ?></span></td>
+                <td><?php echo e($t->DataInicio); ?></td>
+                <td><?php echo e($t->DataLimite); ?></td>
                 <td>
-                    @if($t->StatusTarefa === 'Concluída')
+                    <?php if($t->StatusTarefa === 'Concluída'): ?>
                         ✅  
-                    @elseif($t->StatusTarefa === 'Pendente')
+                    <?php elseif($t->StatusTarefa === 'Pendente'): ?>
                         ❌
-                    @elseif($t->StatusTarefa === 'Em Andamento')
+                    <?php elseif($t->StatusTarefa === 'Em Andamento'): ?>
                         ⏳
-                    @else
+                    <?php else: ?>
                       dasdm
-                    @endif
+                    <?php endif; ?>
                 </td>
               </tr>
-              @empty
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
               <tr>
                 <td colspan="6" class="text-center">Nenhuma tarefa encontrada.</td>
             </tr>
-        @endforelse
+        <?php endif; ?>
         </tbody>
     </table>
   </div>
@@ -478,4 +478,4 @@ tfoot td:first-child {
 
 </body>
 
-</html>
+</html><?php /**PATH C:\GerenciadorDeTarefas\resources\views/tarefas.blade.php ENDPATH**/ ?>
