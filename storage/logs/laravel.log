@@ -3875,3 +3875,19 @@ Did you mean one of these?
 #55 C:/Users/userlocal/GerenciadorDeTarefas/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('C://Users//userlo...')
 #56 {main}
 "} 
+[2026-03-11 20:32:39] local.ERROR: Command "server" is not defined.
+
+Did you mean one of these?
+    make:observer
+    serve {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"server\" is not defined.
+
+Did you mean one of these?
+    make:observer
+    serve at C:/Users/userlocal/AppFinanceiro/GerenciadorDeTarefas/vendor/symfony/console/Application.php:745)
+[stacktrace]
+#0 C:/Users/userlocal/AppFinanceiro/GerenciadorDeTarefas/vendor/symfony/console/Application.php(266): Symfony/Component/Console/Application->find('server')
+#1 C:/Users/userlocal/AppFinanceiro/GerenciadorDeTarefas/vendor/symfony/console/Application.php(175): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#2 C:/Users/userlocal/AppFinanceiro/GerenciadorDeTarefas/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#3 C:/Users/userlocal/AppFinanceiro/GerenciadorDeTarefas/artisan(35): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#4 {main}
+"} 
